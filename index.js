@@ -186,3 +186,6 @@ module.exports = function (opts) {
     }
 };
 
+// i would love to contribute in this project and my freelance handle is http://www.freelancer.com/u/jagdish0011.html
+// a paid contribution :)
+
