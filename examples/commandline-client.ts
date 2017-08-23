@@ -1,4 +1,4 @@
-import Connection from 'src'
+import Connection from './../src'
 import readline from 'readline'
 
 const dc = new Connection({
