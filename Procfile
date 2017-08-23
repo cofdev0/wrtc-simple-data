@@ -1,1 +1,2 @@
-web  node test/index.test.js
+web  tsc examples/commandline-client.ts
+
