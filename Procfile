@@ -1,2 +1,2 @@
-web  tsc examples/commandline-client.ts
+web  node examples/commandline-client.js
 
