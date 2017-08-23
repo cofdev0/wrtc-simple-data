@@ -1,1 +1,1 @@
-web  node index.js
+web  node test/index.test.ts
