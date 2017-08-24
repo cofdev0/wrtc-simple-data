@@ -1,2 +1,2 @@
-web  node examples/commandline-client.js
+web  node index.js
 
