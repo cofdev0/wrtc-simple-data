@@ -1,4 +1,4 @@
-var dc = require("wrtc-simple-data")({
+var dc = require('wrtc-simple-data')({
     roomName: 'chatRoom'
 });
 
