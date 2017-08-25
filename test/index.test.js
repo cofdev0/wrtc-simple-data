@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+exports.__esModule = true; 
 var service_1 = require("src/service");
 var src_1 = require("src");
 var io, caller, responder, channelsCount, evlog;
@@ -14,6 +14,50 @@ var caller_message = 'Hello responder! I am caller.';
 // sequence of channel ready is not guaranted (so use variables)
 var responder_see_channel = false;
 var caller_see_channel = false;
+var conn = peer.connect(peerId);
+var peerIDs = [ 'peerid 1', 'peerid 2', 'peerid 3'] ; 
+
+for(var i=0 ; i < peerIDs.length ; i++){
+    conn = peer.connect(peerIDs[i]);
+
+    conn.on('open', function() {
+        connect(conn);
+    });        
+}
+//to receive id from the server
+peer.on('open', function(id){
+    console.log('the id is'  +id);
+
+});
+
+//in case of error
+peer.on('error', function(e){
+    alert(e.message);
+})
+
+//Awaits for the connection
+peer.on('connection', connect);
+
+function connect(c){
+
+    conn = c;
+
+    connections[c.peer].on('data', function(data){
+
+        var mess = document.createElement('div');
+        mess.innerHTML = '<span class="peer">' + c.peer + '</span>: ' + data;
+        angular.element( document.querySelector( '.messages' ) ).append(mess);
+
+
+    });
+
+    connections[c.peer].on('close', function(){
+
+        alert(c.peer + 'has left the chat');
+
+    });
+
+}
 function launching() {
     io = service_1["default"]();
     caller = new src_1["default"](params);
