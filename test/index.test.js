@@ -21,15 +21,17 @@ for(var i=0 ; i < peerIDs.length ; i++){
     conn = peer.connect(peerIDs[i]);
 
     conn.on('open', function() {
-        connect(conn);
+        connect(conn); 
+         console.log('connection successful' +conn);
     });    
-    conn.off('close'), function() {
+    conn.off('close', function() {
          disconnect(conn);
+          console.log('connection closed'  +conn);
     }); 
 }
 //to receive id from the server
 peer.on('open', function(id){
-    console.log('the id is'  +id);
+    console.log('the id is' +id);
 
 });
 
@@ -61,6 +63,10 @@ function connect(c){
     });
 
 }
+  
+function disconnect(c){
+}
+
 function launching() {
     io = service_1["default"]();
     caller = new src_1["default"](params);
