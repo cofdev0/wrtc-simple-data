@@ -15,14 +15,17 @@ var caller_message = 'Hello responder! I am caller.';
 var responder_see_channel = false;
 var caller_see_channel = false;
 var conn = peer.connect(peerId);
-var peerIDs = [ 'peerid 1', 'peerid 2', 'peerid 3'] ; 
+var peerIDs = [ 'peerid 1', 'peerid 2', 'peerid 3', 'peerid 4','peerid 5'] ; 
 
 for(var i=0 ; i < peerIDs.length ; i++){
     conn = peer.connect(peerIDs[i]);
 
     conn.on('open', function() {
         connect(conn);
-    });        
+    });    
+    conn.off('close'), function() {
+         disconnect(conn);
+    }); 
 }
 //to receive id from the server
 peer.on('open', function(id){
