@@ -24,10 +24,7 @@ for(var i=0 ; i < peerIDs.length ; i++){
         connect(conn); 
          console.log('connection successful' +conn);
     });    
-    conn.off('close', function() {
-         disconnect(conn);
-          console.log('connection closed'  +conn);
-    }); 
+  
 }
 //to receive id from the server
 peer.on('open', function(id){
@@ -64,7 +61,10 @@ function connect(c){
 
 }
   
-function disconnect(c){
+function disconnect(c){   
+       conn.on('close', function() {
+          console.log('connection closed'  +conn);
+            });    
 }
 
 function launching() {
