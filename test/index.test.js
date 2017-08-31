@@ -14,58 +14,7 @@ var caller_message = 'Hello responder! I am caller.';
 // sequence of channel ready is not guaranted (so use variables)
 var responder_see_channel = false;
 var caller_see_channel = false;
-var conn = peer.connect(peerId);
-var peerIDs = [ 'peerid 1', 'peerid 2', 'peerid 3', 'peerid 4','peerid 5'] ; 
 
-for(var i=0 ; i < peerIDs.length ; i++){
-    conn = peer.connect(peerIDs[i]);
-
-    conn.on('open', function() {
-        connect(conn); 
-         console.log('connection successful' +conn);
-    });    
-  
-}
-//to receive id from the server
-peer.on('open', function(id){
-    console.log('the id is' +id);
-
-});
-
-//in case of error
-peer.on('error', function(e){
-    alert(e.message);
-})
-
-//Awaits for the connection
-peer.on('connection', connect);
-
-function connect(c){
-
-    conn = c;
-
-    connections[c.peer].on('data', function(data){
-
-        var mess = document.createElement('div');
-        mess.innerHTML = '<span class="peer">' + c.peer + '</span>: ' + data;
-        angular.element( document.querySelector( '.messages' ) ).append(mess);
-
-
-    });
-
-    connections[c.peer].on('close', function(){
-
-        alert(c.peer + 'has left the chat');
-
-    });
-
-}
-  
-function disconnect(c){   
-       conn.on('close', function() {
-          console.log('connection closed'  +conn);
-            });    
-}
 
 function launching() {
     io = service_1["default"]();
