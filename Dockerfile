@@ -12,7 +12,13 @@ WORKDIR /app
 RUN npm install
 
 # Expose API port to the outside
-EXPOSE 80
+  EXPOSE 3000
+  
+#Build  source  
+CMD ["build", "tsc"]
 
-# Launch application
-CMD ["npm","start"]
+# Make  tests  
+CMD ["npm", "test"]
+
+# Launch  application 
+CMD ["npm run", "server"]
