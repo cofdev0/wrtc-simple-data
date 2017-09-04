@@ -1,6 +1,5 @@
-# Use node  v6.11.2 LTS
-FROM node: 6.11.2
-ENV LAST_UPDATED 20160605T165400
+# Use node v6 LTS
+FROM node:6-onbuild
 
 # Copy source code
 COPY . /app
