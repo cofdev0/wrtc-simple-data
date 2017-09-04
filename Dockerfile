@@ -1,5 +1,5 @@
 # Use node  v6.11.2 LTS
-FROM node: 6.11.2  LTS
+FROM node: 6.11.2
 ENV LAST_UPDATED 20160605T165400
 
 # Copy source code
