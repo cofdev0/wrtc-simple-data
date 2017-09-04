@@ -1,5 +1,5 @@
 # Use node v6 LTS
-FROM node:6-onbuild
+FROM node:6.11.2
 
 # Copy source code
 COPY . /app
