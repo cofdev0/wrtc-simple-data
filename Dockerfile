@@ -1,5 +1,5 @@
-# Use node 4.4.5 LTS
-FROM node:4.4.5
+# Use node  v6.11.2 LTS
+FROM node: 6.11.2  LTS
 ENV LAST_UPDATED 20160605T165400
 
 # Copy source code
@@ -15,10 +15,10 @@ RUN npm install
   EXPOSE 3000
   
 #Build  source  
-CMD ["build", "tsc"]
+CMD ["tsc"]
 
 # Make  tests  
 CMD ["npm", "test"]
 
 # Launch  application 
-CMD ["npm run", "server"]
+CMD ["npm", "run","server"]
