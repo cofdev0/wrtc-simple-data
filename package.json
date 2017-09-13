@@ -2,20 +2,31 @@
   "name": "wrtc-simple-data",
   "version": "0.0.2",
   "description": "A simple Node.js library to communicate via WebRTC data channels as simple and lightweight as any possible.",
-  "main": "dist/index.js",
-  "typings": "dist/main.d.ts",
+  "main": "src",
+  "typings": "src/main.d.ts",
   "scripts": {
-    "build": "tsc",
+    "clean": "rm -rf build && rm -rf dist",
     "build:watch": "tsc --watch",
+    "build": "tsc",
+    "dist:build:node": "babel --presets es2015 -d dist/node/ build/",
+    "dist:build:native": "npm run dist:build:native:copy && npm run dist:build:native:replace",
+    "dist:build:native:copy": "rm -rf dist/native && cp -r build dist/native",
+    "dist:build:native:replace": "sed 's/wrtc from \"wrtc\"/wrtc from \"react-native-webrtc\"/' ./build/src/Connection.js > ./dist/native/src/Connection.js",
+    "dist:node": "npm run dist:build:node && cp README.md dist/node && npm run dist:node:package",
+    "dist:node:package": "cp package.json dist/node",
+    "dist:native": "npm run dist:build:native && cp README.md dist/native && npm run dist:native:package",
+    "dist:native:package": "sed 's/\"wrtc-simple-data\"/\"wrtc-simple-data-native\"/' ./package.json > ./dist/native/package.json",
+    "dist": "npm run build && npm run dist:node && npm run dist:native",
     "lint": "tslint src/**/*.ts",
     "test": "jest",
     "cover": "jest --coverage",
-    "example:client": "babel-node --presets es2015 -- dist/examples/commandline-client.js",
-    "server": "babel-node --presets es2015 -- dist/src/server.js"
+    "example:client": "babel-node --presets es2015 -- build/examples/commandline-client.js",
+    "example:service": "babel-node --presets es2015 -- build/examples/service.js"
   },
   "dependencies": {
     "freeice": "^2.2.0",
     "socket.io-client": "^1.4.5",
+    "react-native-webrtc": "^1.58.1",
     "wrtc": "^0.0.62"
   },
   "repository": {

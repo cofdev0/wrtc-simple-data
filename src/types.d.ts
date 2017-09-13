@@ -20,7 +20,6 @@ interface SocketIoClient {
 interface RTCDataChannel {
   channel: any
   data: any
-  candidate: any
 }
 
 interface DataChannel {
@@ -33,24 +32,34 @@ interface DataChannel {
 }
 
 interface PeerDescription {
+  type: string
   from: number
   to: number
+  rtcsd: RTCSessionDescription
 }
 
 interface PeerConnection {
   id: number
   candidateSent: boolean
-  setRemoteDescription: (rtcsd: RTCSessionDescription) => void
-  setLocalDescription: (description: PeerDescription) => void
+  setRemoteDescription: (
+    rtcsd: RTCSessionDescription,
+    success: () => void,
+    failure: (error) => void,
+  ) => void
+  setLocalDescription: (
+    rtcsd: RTCSessionDescription,
+    success: () => void,
+    failure: (error) => void,
+  ) => void
   addIceCandidate: (candidate: RTCIceCandidate) => void
   createDataChannel: (name: string, opts: Object) => DataChannel
   createOffer: (
-    cb: (description: PeerDescription) => void,
-    log: (...args: any[]) => void
+    cb: (rtcsd: RTCSessionDescription) => void,
+    failcb: (...args: any[]) => void
   ) => void
   createAnswer: (
-    cb: (description: PeerDescription) => void,
-    log: (...args: any[]) => void
+    cb: (rtcsd: RTCSessionDescription) => void,
+    failcb: (...args: any[]) => void
   ) => void
 }
 
