@@ -3,6 +3,7 @@
   "version": "0.0.2",
   "description": "A simple Node.js library to communicate via WebRTC data channels as simple and lightweight as any possible.",
   "main": "dist/src/index.js",
+  "typings": "dist/main.d.ts",
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
@@ -10,7 +11,7 @@
     "test": "jest",
     "cover": "jest --coverage",
     "example:client": "babel-node --presets es2015 -- dist/examples/commandline-client.js",
-    "server": "babel-node --presets es2015 -- dist/examples/src/server.js"
+    "server": "babel-node --presets es2015 -- dist/src/server.js"
   },
   "dependencies": {
     "freeice": "^2.2.0",
