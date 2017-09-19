@@ -1,4 +1,4 @@
-import service from 'src/service'
+import service from 'src'
 import Connection from 'src'
 
 let io, caller, responder, channelsCount, evlog
