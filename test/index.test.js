@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true; 
-var service_1 = require("service");
-var src_1 = require("src");
+var service_1 = require("./src/service");
+var src_1 = require("./src");
 var io, caller, responder, channelsCount, evlog;
 var params = {
     roomName: 'chatRoom',
