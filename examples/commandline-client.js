@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var src_1 = require("src");
+var src_1 = require("../../src");
 var readline_1 = require("readline");
 var dc = new src_1["default"]({
     roomName: 'chatRoom',
