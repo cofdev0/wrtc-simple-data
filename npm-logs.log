@@ -1,0 +1,38 @@
+W
+~ $ npm test
+[..................] \ : verb config Skipping project config: /app/.npmrc. (mat
+[..................] - : verb config Skipping project config: /app/.npmrc. (mat
+
+> wrtc-simple-data@0.0.2 test /app
+> jest
+
+
+ RUNS  test/index.test.js
+ RUNS  test/index.test.ts
+
+Test Suites: 0 of 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        5sError: listen EADDRINUSE :::24760
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1258:14)
+    at listen (net.js:1294:10)
+    at Server.listen (net.js:1390:5)
+ RUNS  test/index.test.js
+ RUNS  test/index.test.ts
+
+Test Suites: 0 of 2 total
+
+Time:
+    9sError: listen EADDRINUSE :::24760
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1258:14)
+    at listen (net.js:1294:10)
+ FAIL  test/index.test.ts (10.157s))
+  ● Console
+
+    console.log src/service.ts:7
+      listening on 24760
+    console.log src/Connection.ts:186
