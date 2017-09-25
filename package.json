@@ -4,9 +4,6 @@
   "description": "A simple Node.js library to communicate via WebRTC data channels as simple and lightweight as any possible.",
   "main": "dist/src/index.js",
   "typings": "dist/main.d.ts",
-  "babel": {
-    "presets": ["es2015-node"]
-  },
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
