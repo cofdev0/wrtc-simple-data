@@ -16,7 +16,7 @@
   "dependencies": {
     "freeice": "^2.2.0",
     "socket.io-client": "^1.4.5",
-    "wrtc": "^0.0.59",
+    "wrtc": "^0.0.62",
     "@types/jest": "^20.0.2",
     "@types/node": "^8.0.12",
     "babel-cli": "^6.24.1",
