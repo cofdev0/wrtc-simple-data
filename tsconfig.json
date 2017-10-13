@@ -25,8 +25,8 @@
   },
   "filesGlob": [
     "typings/types.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/*.ts",
+    "src/*.tsx"
   ],
   "exclude": [
     "coverage",
